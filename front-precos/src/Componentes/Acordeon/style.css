@@ -1,0 +1,35 @@
+.caixa-maior1{
+    padding-top: 30px;
+    display: grid;
+    padding-left: 33px;
+    
+}
+
+.acordion1{
+    width: 80%;
+    margin-left: 80px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 10px;
+    color: #fff; 
+    
+}
+
+.text{
+    width: 80%;
+    margin-left: 80px;
+    font-family: var(--FontePadaro);
+}
+.button{
+    background-color: var(--CordeFundo);
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    color: #fff; 
+    font-weight: 400;
+}
+.text-button{
+    font-family: var(--FontePadaro);
+    font-size: 16px;
+    font-weight: 400;
+}
