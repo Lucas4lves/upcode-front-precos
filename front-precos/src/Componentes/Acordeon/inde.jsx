@@ -6,6 +6,7 @@ import {
     AccordionIcon,
     Box,
   } from '@chakra-ui/react'
+import Botao from '../Botao'
 
   import "./style.css"
 
@@ -26,6 +27,7 @@ import {
           </div>
           <AccordionPanel className='text' pb={4}>
            <p>teste</p>
+           <Botao text='Proceguir'/>
           </AccordionPanel>
         </AccordionItem>
       
