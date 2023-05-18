@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-import './style.css';
+import '../PesquisaBotao/style.css';
 
 function SearchInput() {
   return (

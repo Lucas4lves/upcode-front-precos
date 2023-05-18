@@ -29,7 +29,9 @@
         flex-direction:column;
         width: 14%;
         margin-left: 90px;
-        font-family: var(--FontePadaro)
+        font-family: var(--FontePadaro);
+        
+     
     }
     .typeinput{
         padding: 5px;

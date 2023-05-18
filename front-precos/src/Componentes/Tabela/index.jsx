@@ -20,9 +20,9 @@ export default function Tabela({coluna}) {
     </Thead>
     <Tbody >
       <Tr>
-        <Td className='teste' >1</Td>
-        <Td className='teste'>Senador pompeu</Td>
-        <Td className='teste'>Placeholder</Td>
+        <Td className='texto-tabela' >1</Td>
+        <Td className='texto-tabela'>Senador pompeu</Td>
+        <Td className='texto-tabela'>Placeholder</Td>
         <input className='box' type='checkbox'/>
       </Tr>
     </Tbody>

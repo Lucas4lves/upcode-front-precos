@@ -10,10 +10,12 @@
 } */
 .tabela-maior{
     width: 50%;
-   
+    
     
 }
 
-.teste{
+.texto-tabela{
     text-align:center;
+    font-family: var(--FontePadaro);
+   
 }

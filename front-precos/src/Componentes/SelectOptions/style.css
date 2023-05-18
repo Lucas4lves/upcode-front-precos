@@ -5,14 +5,14 @@
 
 .selectoptions{
     border: 1px solid var(--CorDaBorda);
-    width: 167px;
+    width: 197px;
     padding: 10px;
     border-radius: 10px;
     margin-top: 10px;
     box-shadow: 0 0 0 0;
     outline: none;
     color: var( --CorDaFonte);
-    height: 38px;
+    height: 32px;
 }
 .titulo-categoria{
     font-family: var(----FontePadaro);
