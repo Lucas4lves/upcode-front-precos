@@ -24,6 +24,7 @@ import Botao from '../Botao'
               </Box>
               <AccordionIcon  style={{fontSize: '24px'}}  />
             </AccordionButton>
+            
           </div>
           <AccordionPanel className='text' pb={4}>
            <p>teste</p>
