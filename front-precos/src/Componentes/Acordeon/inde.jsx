@@ -8,6 +8,7 @@ import {
   } from '@chakra-ui/react'
 import Botao from '../Botao'
 import SelectOptions from '../SelectOptions'
+import Tabela from '../Tabela'
 
   import "./style.css"
 
@@ -27,7 +28,7 @@ import SelectOptions from '../SelectOptions'
             </AccordionButton>
           </div>
           <AccordionPanel className='text' pb={4}>
-           <p>teste</p>
+          <Tabela coluna={["Codigo", "Loja","UF"]}/>
            <Botao text='Proceguir'/>
           </AccordionPanel>
         </AccordionItem>
@@ -43,6 +44,7 @@ import SelectOptions from '../SelectOptions'
           </div>
           <AccordionPanel className='text' pb={4}>
              <SelectOptions/>
+             <Tabela coluna={["Codigo", "Descrição"]}/>
           </AccordionPanel>
         </AccordionItem>
 
@@ -56,7 +58,7 @@ import SelectOptions from '../SelectOptions'
             </AccordionButton>
           </div>
           <AccordionPanel className='text' pb={4}>
-          <p>teste</p>
+          <Tabela coluna={["Codigo", "Loja","UF"]}/>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
