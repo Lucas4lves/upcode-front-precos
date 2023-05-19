@@ -1,0 +1,37 @@
+.container-produtos{
+        background-color: #faf3f3;
+        width: 88%;
+        border-radius: 10px;
+}
+
+.tabela-maior{
+    display: flex;
+    justify-content: space-between;
+    width: 30%;   
+    gap:40px;
+    border-bottom: 1px solid #000000;
+   
+}
+
+.texto-tabela{
+    font-family: var(--FontePadaro);
+    display: flex;
+    justify-content:flex-start;
+ 
+}
+.titulo-tabela2{
+    display: flex;
+    gap: 290px;
+    font-size: 20px;
+    font-family: var(--FontePadaro);
+    
+}
+
+.caixa-produtos{
+    display: flex;
+    gap:20px;
+    border-top: 1px solid #b1a1a1;
+    padding: 5px;
+    width: 100%;
+    
+}
