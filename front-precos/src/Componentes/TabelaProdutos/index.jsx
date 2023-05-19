@@ -24,14 +24,18 @@ export default function TabelaProdutos({coluna,produtos}) {
             return(
                 <div className='caixa-produtos' key={index}>
                     <Td className='texto-tabela'>{item.id}</Td>
+                  <div className='caixa-produto'>
                     <Td className='texto-tabela texto-nome'>{item.nome}</Td>
-                    <div>
-                        <input type="checkbox"/>    
-                    </div>
-                   
+                  </div>
+                  <Td className='texto-tabela'>{item.preco}</Td>   
+                  <div className='box'>
+                     <input type="checkbox"/>    
+                 </div>
                 </div>
+                 
             )
         })}
+     
       </Tr>
     </Tbody>
     </Thead>

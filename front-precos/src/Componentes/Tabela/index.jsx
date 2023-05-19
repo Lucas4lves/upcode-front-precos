@@ -8,7 +8,7 @@ export default function Tabela({coluna,lojas}) {
 
   return (
   <TableContainer className='container'>
-  <Table className='tabela-maior'>
+  <Table className='tabela-maior-loja'>
     <Thead>
       <div>
       <Tr className='titulo-tabela'>
@@ -28,8 +28,9 @@ export default function Tabela({coluna,lojas}) {
               <div className='caixa-loja' key={index}>
                 <Td className='texto-tabela' >{item.codigo}</Td>
                 <Td className='texto-tabela'>{item.nomeFilial}</Td>
-                
-                <Td className='uf'>{item.uf}</Td>
+                <div className='uf'>
+                  <Td >{item.uf}</Td>
+                </div>
                 <input className='box' type='checkbox'/>
               </div>
                 

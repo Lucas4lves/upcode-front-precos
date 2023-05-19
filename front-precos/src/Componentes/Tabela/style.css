@@ -10,18 +10,17 @@
 } */
 .container{
     background-color: #faf3f3;
-    width: 40%;
+    width: 42%;
     border-radius: 10px;
     
 }
-.tabela-maior{
-    width: 50%;
+.tabela-maior-loja{
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    
-    
-    
-    
+    margin: 15px;
+    overflow-y:scroll;
+    max-height: 469px;
 }
 .titulo-tabela{
     font-size: 20px;
@@ -46,6 +45,10 @@
     border-bottom: 1px solid #000000;
     gap: 55px;
     margin-top: 20px;
+}
+.uf{
+   
+   
 }
 
 
