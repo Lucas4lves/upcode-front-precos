@@ -12,7 +12,7 @@
     box-shadow: 0 0 0 0;
     outline: none;
     color: var( --CorDaFonte);
-    height: 32px;
+    height: 35px;
 }
 .titulo-categoria{
     font-family: var(----FontePadaro);

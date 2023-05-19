@@ -11,11 +11,12 @@ import SearchInput from '../PesquisaBotao'
 import Selecionados from '../Selecionados'
 import SelectOptions from '../SelectOptions'
 import Tabela from '../Tabela'
+import TabelaProdutos from '../TabelaProdutos'
 
   import "./style.css"
 
   
-  export default function Acordeon() {
+  export default function Acordeon({lojas,produtos}) {
     return (
       
       <div className='caixa-maior1'>
@@ -34,7 +35,7 @@ import Tabela from '../Tabela'
            <div className='caixa-inpt'>
             <SearchInput/>
             </div>
-          <Tabela coluna={["Codigo", "Loja","UF"]}/>
+          <Tabela coluna={["Codigo", "Loja","UF"]} lojas={lojas}/>
            <Botao text='Proceguir'/>
           </AccordionPanel>
         </AccordionItem>
@@ -53,7 +54,7 @@ import Tabela from '../Tabela'
                <SelectOptions/>
                <SearchInput/>
              </div>
-             <Tabela coluna={["Codigo", "Descrição"]}/>
+             <TabelaProdutos coluna={["Codigo", "Descrição"]} produtos={produtos}/>
              <Botao text='Salvar'/>
           </AccordionPanel>
         </AccordionItem>
