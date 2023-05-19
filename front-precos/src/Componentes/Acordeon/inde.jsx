@@ -8,6 +8,7 @@ import {
   } from '@chakra-ui/react'
 import Botao from '../Botao'
 import SearchInput from '../PesquisaBotao'
+import Selecionados from '../Selecionados'
 import SelectOptions from '../SelectOptions'
 import Tabela from '../Tabela'
 
@@ -68,6 +69,7 @@ import Tabela from '../Tabela'
           </div>
           <AccordionPanel className='text' pb={4}>
           <Tabela coluna={["Codigo", "Loja","UF"]}/>
+          <Selecionados/>
           <Botao text='Enviar'/>
           </AccordionPanel>
         </AccordionItem>
