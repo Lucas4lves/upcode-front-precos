@@ -33,11 +33,37 @@
     font-size: 16px;
     font-weight: 400;
 }
+.caixa-resumo{
+    width: 50%;
+    margin-top: 15px;
+}
 .caixa-Selecao{
     display: flex;
     gap: 15px;
+    
 }
 .caixa-inpt{
-    margin-left: 21%;
+    margin-left: 24%;
     width: 100%;
+}
+.selecao-lojas{
+    display: flex;
+}
+.seleciona-produtos{
+    display: flex;
+    
+}
+.selecionados-resumo{
+    display: flex;
+}
+.caixa-resumo{
+  margin-top: 15px;
+}
+.select{
+    width: 60%;
+}
+.caixa-batao{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
 }

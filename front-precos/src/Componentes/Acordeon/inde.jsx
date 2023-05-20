@@ -35,8 +35,20 @@ import TabelaProdutos from '../TabelaProdutos'
            <div className='caixa-inpt'>
             <SearchInput/>
             </div>
-          <Tabela coluna={["Codigo", "Loja","UF"]} lojas={lojas}/>
-           <Botao text='Proceguir'/>
+            
+              <div className='selecao-lojas'>
+              <Tabela coluna={["Codigo", "Loja","UF"]} lojas={lojas}/>
+                  <div className='selecionados'>            
+                       <Selecionados/>
+                  </div> 
+             </div>
+             <div>
+              
+             </div>
+             <div className='caixa-batao'>
+              <Botao text='Proceguir'/>
+             </div>
+         
           </AccordionPanel>
         </AccordionItem>
       
@@ -54,8 +66,16 @@ import TabelaProdutos from '../TabelaProdutos'
                <SelectOptions/>
                <SearchInput/>
              </div>
-             <TabelaProdutos coluna={["Codigo", "Descrição"]} produtos={produtos}/>
-             <Botao text='Salvar'/>
+            
+             <div className='seleciona-produtos'>
+               <TabelaProdutos coluna={["Codigo", "Descrição"]} produtos={produtos}/>
+                 <div className='selecionados'>            
+                     <Selecionados/>
+                  </div> 
+               </div>
+               <div className='caixa-batao'>
+                <Botao text='Salvar'/>
+             </div>
           </AccordionPanel>
         </AccordionItem>
 
@@ -69,9 +89,16 @@ import TabelaProdutos from '../TabelaProdutos'
             </AccordionButton>
           </div>
           <AccordionPanel className='text' pb={4}>
-          <Tabela coluna={["Codigo", "Loja","UF"]}/>
-          <Selecionados/>
-          <Botao text='Enviar'/>
+          <div className='selecionados-resumo'>
+            <Tabela className="caixa-resumo" coluna={["Codigo", "Loja","UF"]} produtos={produtos}/>
+            <div className='select'>
+              <Selecionados/>
+            </div>
+          </div>
+          <div className='caixa-batao'>
+            <Botao text='Enviar'/>
+          </div>
+        
           </AccordionPanel>
         </AccordionItem>
       </Accordion>
