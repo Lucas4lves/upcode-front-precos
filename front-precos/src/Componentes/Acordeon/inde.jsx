@@ -35,11 +35,13 @@ import TabelaProdutos from '../TabelaProdutos'
            <div className='caixa-inpt'>
             <SearchInput/>
             </div>
+
+          
           <Tabela coluna={["Codigo", "Loja","UF"]} lojas={lojas}/>
-           <Botao text='Proceguir'/>
-          </AccordionPanel>
+           <Botao text='Proseguir'/>
+           </AccordionPanel>
         </AccordionItem>
-      
+        
         <AccordionItem>
           <div className='acordion1'>
             <AccordionButton className='button'>
@@ -70,7 +72,9 @@ import TabelaProdutos from '../TabelaProdutos'
           </div>
           <AccordionPanel className='text' pb={4}>
           <Tabela coluna={["Codigo", "Loja","UF"]}/>
+
           <Selecionados/>
+
           <Botao text='Enviar'/>
           </AccordionPanel>
         </AccordionItem>

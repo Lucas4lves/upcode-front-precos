@@ -2,6 +2,7 @@
         background-color: #faf3f3;
         width: 88%;
         border-radius: 10px;
+        box-shadow: 1px 2px 9px #312f2f;
 }
 
 .tabela-maior{
@@ -30,7 +31,7 @@
 .caixa-produtos{
     display: flex;
     gap:20px;
-    border-top: 1px solid #b1a1a1;
+    border-top: 1px solid #b9b2b2;
     padding: 5px;
     width: 100%;
     
