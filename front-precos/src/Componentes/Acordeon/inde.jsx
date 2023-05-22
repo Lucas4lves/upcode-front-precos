@@ -7,6 +7,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import Botao from "../Botao";
+import HederResumo from "../HederResumo/Categoriaheder";
 import SearchInput from "../PesquisaBotao";
 import ProdutosSelecionados from "../ProdutosSelecionados";
 import Selecionados from "../Selecionados";
@@ -94,6 +95,7 @@ export default function Acordeon({ loja, produto, formulario, setForm, lojasFilt
             </AccordionButton>
           </div>
           <AccordionPanel className="text" pb={4}>
+            <HederResumo/>
             <div className="selecionados-resumo">
               <Tabela
                 className="caixa-resumo"

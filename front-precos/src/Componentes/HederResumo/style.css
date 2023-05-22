@@ -1,0 +1,17 @@
+.categoria {
+    display: flex;
+    margin-left: 20px;
+    gap: 80px;
+    font-family: var(--FontePadaro);
+    font-weight: bold;
+    
+}
+
+.lojas {
+    display: flex;
+    margin-left: 20px;
+    gap: 520px;
+    margin-top: 10px;
+    font-family: var(--FontePadaro);
+    font-weight: bold;
+}
