@@ -1,0 +1,47 @@
+
+.main{
+    width: 100%;
+    gap: 7.8rem;
+
+  }
+
+  .container_selecionados{
+    border: none;
+    border-radius: 10px;
+    background: #f0ebeb;
+    padding: 5rem;
+    box-shadow: 1px 2px 9px #6e6b6b;
+    margin: 15px;
+    margin-left: 115px;
+    width: 80%;
+    
+    
+  }
+
+  .title_selecionados{
+    padding-bottom: 2rem;
+    font-weight: 600;
+    display: grid;
+    justify-content: center;
+    
+}
+
+
+.descricao_selecionados{
+  font-size: 16px;
+
+}
+
+.delete_button{
+    font-weight: bolder;
+    font-size: 18px;
+    padding-top: 1.2rem;
+    display: grid;
+    padding-left: 2rem;
+    
+}
+
+.delete_button:hover{
+  color: rgb(240, 0, 0);
+  transition: 2ms;
+}

@@ -58,7 +58,6 @@ export default function Tabela({coluna,loja, formulario, setForm}) {
             })}
         
         </Tr>
-       
       </Tbody>
       </div>
       </Thead>

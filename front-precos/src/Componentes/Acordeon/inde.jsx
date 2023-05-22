@@ -8,6 +8,7 @@ import {
 } from "@chakra-ui/react";
 import Botao from "../Botao";
 import SearchInput from "../PesquisaBotao";
+import ProdutosSelecionados from "../ProdutosSelecionados";
 import Selecionados from "../Selecionados";
 import SelectOptions from "../SelectOptions";
 import Tabela from "../Tabela";
@@ -15,7 +16,7 @@ import TabelaProdutos from "../TabelaProdutos";
 
 import "./style.css";
 
-export default function Acordeon({ loja, produto, formulario, setForm }) {
+export default function Acordeon({ loja, produto, formulario, setForm, lojasFiltradas, setLojasFiltradas }) {
   return (
     <div className="caixa-maior1">
       <Accordion defaultIndex={[0]} allowMultiple>
@@ -30,13 +31,13 @@ export default function Acordeon({ loja, produto, formulario, setForm }) {
           </div>
           <AccordionPanel className="text" pb={4}>
             <div className="caixa-inpt">
-              <SearchInput />
+              <SearchInput lojas={loja} lojasFiltradas={lojasFiltradas} setLojasFiltradas={setLojasFiltradas}/>
             </div>
 
             <div className="selecao-lojas">
               <Tabela
                 coluna={["Codigo", "Loja", "UF"]}
-                loja={loja}
+                loja={lojasFiltradas}
                 formulario={formulario}
                 setForm={setForm}
               />
@@ -63,7 +64,7 @@ export default function Acordeon({ loja, produto, formulario, setForm }) {
           <AccordionPanel className="text" pb={4}>
             <div className="caixa-Selecao">
               <SelectOptions />
-              <SearchInput />
+              {/* <SearchInput /> */}
             </div>
 
             <div className="seleciona-produtos">
@@ -74,7 +75,7 @@ export default function Acordeon({ loja, produto, formulario, setForm }) {
                 produto={produto}
               />
               <div className="selecionados">
-                <Selecionados  formulario={formulario} lista={'produtos'} />
+               <ProdutosSelecionados  formulario={formulario} lista={'produtos'} />
               </div>
             </div>
             <div className="caixa-batao">
