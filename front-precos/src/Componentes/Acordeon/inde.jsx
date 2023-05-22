@@ -19,67 +19,91 @@ import TabelaProdutos from '../TabelaProdutos'
   export default function Acordeon({lojas,produtos}) {
     return (
       
+             
       <div className='caixa-maior1'>
-        <Accordion defaultIndex={[0]} allowMultiple>
-        <AccordionItem>
-          <div className='acordion1'>
-            <AccordionButton className='button'>
-              <Box className='text-button'  as="span" flex='1' textAlign='left'>
-                Lojas
-              </Box>
-              <AccordionIcon  style={{fontSize: '24px'}}  />
-            </AccordionButton>
-            
-          </div>
-          <AccordionPanel className='text' pb={4}>
-           <div className='caixa-inpt'>
-            <SearchInput/>
-            </div>
-
+      <Accordion defaultIndex={[0]} allowMultiple>
+      <AccordionItem>
+        <div className='acordion1'>
+          <AccordionButton className='button'>
+            <Box className='text-button'  as="span" flex='1' textAlign='left'>
+              Lojas
+            </Box>
+            <AccordionIcon  style={{fontSize: '24px'}}  />
+          </AccordionButton>
           
-          <Tabela coluna={["Codigo", "Loja","UF"]} lojas={lojas}/>
-           <Botao text='Proseguir'/>
-           </AccordionPanel>
-        </AccordionItem>
-        
-        <AccordionItem>
-          <div className='acordion1'>
-            <AccordionButton className='button'>
-              <Box className='text-button'  as="span" flex='1' textAlign='left'>
-                Produtos
-              </Box>
-              <AccordionIcon style={{fontSize: '24px'}} />
-            </AccordionButton>
+        </div>
+        <AccordionPanel className='text' pb={4}>
+         <div className='caixa-inpt'>
+          <SearchInput/>
           </div>
-          <AccordionPanel className='text' pb={4}>
-            <div className='caixa-Selecao'>
-               <SelectOptions/>
-               <SearchInput/>
-             </div>
+          
+            <div className='selecao-lojas'>
+            <Tabela coluna={["Codigo", "Loja","UF"]} lojas={lojas}/>
+                <div className='selecionados'>            
+                     <Selecionados/>
+                </div> 
+           </div>
+           <div>
+            
+           </div>
+           <div className='caixa-batao'>
+            <Botao text='Prosseguir'/>
+           </div>
+       
+        </AccordionPanel>
+      </AccordionItem>
+    
+      <AccordionItem>
+        <div className='acordion1'>
+          <AccordionButton className='button'>
+            <Box className='text-button'  as="span" flex='1' textAlign='left'>
+              Produtos
+            </Box>
+            <AccordionIcon style={{fontSize: '24px'}} />
+          </AccordionButton>
+        </div>
+        <AccordionPanel className='text' pb={4}>
+          <div className='caixa-Selecao'>
+             <SelectOptions/>
+             <SearchInput/>
+           </div>
+          
+           <div className='seleciona-produtos'>
              <TabelaProdutos coluna={["Codigo", "Descrição"]} produtos={produtos}/>
-             <Botao text='Salvar'/>
-          </AccordionPanel>
-        </AccordionItem>
+               <div className='selecionados'>            
+                   <Selecionados/>
+                </div> 
+             </div>
+             <div className='caixa-batao'>
+              <Botao text='Salvar'/>
+           </div>
+        </AccordionPanel>
+      </AccordionItem>
 
-        <AccordionItem>
-          <div className='acordion1'>
-            <AccordionButton className='button'>
-              <Box className='text-button' as="span" flex='1' textAlign='left'>
-                Resumo
-              </Box>
-              <AccordionIcon style={{fontSize: '24px'}} />
-            </AccordionButton>
+      <AccordionItem>
+        <div className='acordion1'>
+          <AccordionButton className='button'>
+            <Box className='text-button' as="span" flex='1' textAlign='left'>
+              Resumo
+            </Box>
+            <AccordionIcon style={{fontSize: '24px'}} />
+          </AccordionButton>
+        </div>
+        <AccordionPanel className='text' pb={4}>
+        <div className='selecionados-resumo'>
+          <Tabela className="caixa-resumo" coluna={["Codigo", "Loja","UF"]} produtos={produtos}/>
+          <div className='select'>
+            <Selecionados/>
           </div>
-          <AccordionPanel className='text' pb={4}>
-          <Tabela coluna={["Codigo", "Loja","UF"]}/>
-
-          <Selecionados/>
-
+        </div>
+        <div className='caixa-batao'>
           <Botao text='Enviar'/>
-          </AccordionPanel>
-        </AccordionItem>
-      </Accordion>
-      </div>
-    )
-  }
+        </div>
+      
+        </AccordionPanel>
+      </AccordionItem>
+    </Accordion>
+    </div>
+  )
+}
   

@@ -1,6 +1,6 @@
 
 .main{
-    width: 50%;
+    width: 100%;
     gap: 7.8rem;
 
   }
@@ -11,7 +11,9 @@
     background: #f0ebeb;
     padding: 5rem;
     box-shadow: 1px 2px 9px #6e6b6b;
-    margin: 4em;
+    margin: 15px;
+    margin-left: 115px;
+    width: 80%;
     
     
   }

@@ -3,31 +3,47 @@ import "../Tabela/style.css"
 
 
 
-export default function Tabela({coluna}) {
+export default function Tabela({coluna,lojas}) {
 
 
   return (
-  <TableContainer >
-  <Table className='tabela-maior'>
-    <Thead>
-      <Tr>
-        {coluna?.map((t ,index) => {
-          return (
-          <Th key={index}>{t}</Th>
-          )
-        })}
-      </Tr>
-    </Thead>
-    <Tbody >
-      <Tr>
-        <Td className='texto-tabela' >1</Td>
-        <Td className='texto-tabela'>Senador pompeu</Td>
-        <Td className='texto-tabela'>Placeholder</Td>
-        <input className='box' type='checkbox'/>
-      </Tr>
-    </Tbody>
-  </Table>
-</TableContainer>
-
-  )
-}
+    <TableContainer className='container'>
+    <Table className='tabela-maior-loja'>
+      <Thead>
+        <div>
+        <Tr className='titulo-tabela'>
+          {coluna?.map((t ,index) => {
+            return (
+            <Th key={index}>{t}</Th>
+            )
+          })}
+        </Tr>
+        </div>
+     
+      <div>
+      <Tbody >
+        <Tr>
+            {lojas?.map((item,index) =>{
+              return(
+                <div className='caixa-loja' key={index}>
+                  <Td className='texto-tabela' >{item.codigo}</Td>
+                  <Td className='texto-tabela'>{item.nomeFilial}</Td>
+                  <div className='uf'>
+                    <Td >{item.uf}</Td>
+                  </div>
+                  <input className='box' type='checkbox'/>
+                </div>
+                  
+              )
+            })}
+        
+        </Tr>
+       
+      </Tbody>
+      </div>
+      </Thead>
+    </Table>
+  </TableContainer>
+  
+    )
+  }
