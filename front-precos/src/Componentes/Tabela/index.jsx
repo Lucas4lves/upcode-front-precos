@@ -3,44 +3,29 @@ import "../Tabela/style.css"
 
 
 
-export default function Tabela({coluna,lojas}) {
+export default function Tabela({coluna}) {
 
 
   return (
-  <TableContainer className='container'>
+  <TableContainer >
   <Table className='tabela-maior'>
     <Thead>
-      <div>
-      <Tr className='titulo-tabela'>
+      <Tr>
         {coluna?.map((t ,index) => {
           return (
           <Th key={index}>{t}</Th>
           )
         })}
       </Tr>
-      </div>
-   
-    <div>
+    </Thead>
     <Tbody >
       <Tr>
-          {lojas?.map((item,index) =>{
-            return(
-              <div className='caixa-loja' key={index}>
-                <Td className='texto-tabela' >{item.codigo}</Td>
-                <Td className='texto-tabela'>{item.nomeFilial}</Td>
-                
-                <Td className='uf'>{item.uf}</Td>
-                <input className='box' type='checkbox'/>
-              </div>
-                
-            )
-          })}
-      
+        <Td className='texto-tabela' >1</Td>
+        <Td className='texto-tabela'>Senador pompeu</Td>
+        <Td className='texto-tabela'>Placeholder</Td>
+        <input className='box' type='checkbox'/>
       </Tr>
-     
     </Tbody>
-    </div>
-    </Thead>
   </Table>
 </TableContainer>
 
