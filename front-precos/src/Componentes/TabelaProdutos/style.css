@@ -4,6 +4,7 @@
         border-radius: 10px;
         box-shadow: 1px 2px 9px #312f2f;
         margin-top: 10px;
+        
 }
 
 .tabela-maior{
@@ -16,8 +17,6 @@
     width: 100%;
     max-height: 550px;
     overflow-y: auto;
-
-    
    
 }
 td {
@@ -26,6 +25,7 @@ td {
 .caixa-produto{
     width: 550px;
     height: 30px;
+    
 }
 
 .texto-tabela{
@@ -34,7 +34,7 @@ td {
     justify-content:flex-start;
     word-break: break-all;
     font-size: 14px;
- 
+    
 }
 .titulo-tabela2{
     display: flex;
@@ -51,6 +51,7 @@ td {
     padding: 10px;
     padding-bottom: 1px;
     width: 110%;
+
   
     
 }

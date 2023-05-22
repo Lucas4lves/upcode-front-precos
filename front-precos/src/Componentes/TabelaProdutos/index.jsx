@@ -3,8 +3,27 @@ import "../TabelaProdutos/style.css"
 
 
 
-export default function TabelaProdutos({coluna,produtos}) {
+export default function TabelaProdutos({coluna,produto, formulario, setForm}) {
 
+const excluirProduto = (e) => {
+  setForm({...formulario, produtos: formulario.produtos.filter(produto => produto !== pegarProdutoPorId(e.target.parentNode.id))})
+}
+
+const pegarProdutoPorId = (id) => {
+    return produto.filter((p) => p.id == id)[0];
+}
+
+  const selecionarProduto = (e) => {
+    if(e.target.checked){
+      setForm(
+        {...formulario, produtos: [...formulario.produtos, pegarProdutoPorId(e.target.parentNode.id)]}
+      )
+      return;
+    }
+    excluirProduto(e);
+    return;
+  }
+  
 
   return (
   <TableContainer className='container-produtos'>
@@ -20,16 +39,16 @@ export default function TabelaProdutos({coluna,produtos}) {
    
     <Tbody>
       <Tr>
-        {produtos?.map((item,index) => {
+        {produto?.map((item,index) => {
             return(
-                <div className='caixa-produtos' key={index}>
+                <div className='caixa-produtos' key={index} >
                     <Td className='texto-tabela'>{item.id}</Td>
                     <div>
                       <div className='caixa-produto'>
                       <Td className='texto-tabela texto-nome'>{item.nome}</Td>
                       </div>
-                        <div className='box'>
-                        <input type="checkbox"/>   
+                        <div className='box' id={item.id} >
+                           <input type="checkbox" onClick={(e) => selecionarProduto(e)}/>   
                         </div>
                          
                     </div>

@@ -3,8 +3,28 @@ import "../Tabela/style.css"
 
 
 
-export default function Tabela({coluna,lojas}) {
+export default function Tabela({coluna,loja, formulario, setForm}) {
 
+  const excluirLoja = (e) => {
+    setForm({...formulario, lojas: formulario.lojas.filter(loja => loja !== pegarLojaPorId(parseInt(e.target.parentNode.id)))})
+  }
+
+  const pegarLojaPorId = (id) => {
+    const lojaEncontrada = loja.filter(loja => loja.codigo == id)[0];
+
+    return lojaEncontrada;
+  }
+
+  const selecionarLoja = (e) =>{
+    if(e.target.checked){
+      setForm(
+        {...formulario, lojas: [...formulario.lojas, pegarLojaPorId(parseInt(e.target.parentNode.id))]}
+      )
+      return;
+    }
+      excluirLoja(e);
+    return;
+  }
 
   return (
     <TableContainer className='container'>
@@ -23,15 +43,15 @@ export default function Tabela({coluna,lojas}) {
       <div>
       <Tbody >
         <Tr>
-            {lojas?.map((item,index) =>{
+            {loja?.map((item,index) =>{
               return(
-                <div className='caixa-loja' key={index}>
+                <div id={item.codigo} className='caixa-loja' key={index}>
                   <Td className='texto-tabela' >{item.codigo}</Td>
                   <Td className='texto-tabela'>{item.nomeFilial}</Td>
                   <div className='uf'>
                     <Td >{item.uf}</Td>
                   </div>
-                  <input className='box' type='checkbox'/>
+                  <input className='box' type='checkbox' onClick={(e) => selecionarLoja(e)}/>
                 </div>
                   
               )

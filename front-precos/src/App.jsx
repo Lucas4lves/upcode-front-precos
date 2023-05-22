@@ -4,8 +4,16 @@ import Input from "./Componentes/Input"
 import { useState,useEffect } from "react"
 
 function App() {
-const[lojas, setLojas] = useState([]);
-const[produtos, setProdutos] = useState([]);
+const[loja, setLojas] = useState([]);
+const[produto, setProdutos] = useState([]);
+const[form, setForm] =  useState({
+  categoria: "Rx Marcas",
+  startDate: "",
+  endDate: "",
+  lojas:[],
+  produtos:[],
+  isFinished: false
+})
 
 
 const buscarProdutos = async() => {
@@ -34,8 +42,8 @@ useEffect(()=>{
   return (
       <div>
         <Heder/>
-        <Input/>
-        <Acordeon lojas={lojas} produtos={produtos}/>
+        <Input formulario={form} setForm={setForm}/>
+        <Acordeon loja={loja} produto={produto} formulario={form} setForm={setForm}  />
         
       </div>
   )
