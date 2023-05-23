@@ -8,10 +8,10 @@ export default function SelectOptions() {
         </div>
       <select className='selectoptions' itemType="checkbox">
         <option className="textOption"></option>
-        <option type="checkbox">Rx Marcas</option>
-        <option>Genérico</option>
+        <option>Rx Marcas</option>
+        <option>Rx Genérico</option>
         <option>OTC</option>
-        <option>kkkkkkk</option>
+        <option>Marca Própria</option>
       </select>
     </div>
   )

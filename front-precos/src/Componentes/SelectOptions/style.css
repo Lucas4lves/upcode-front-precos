@@ -3,6 +3,7 @@
     gap: 10px;
     
     
+    
 }
 
 .selectoptions{
@@ -14,8 +15,9 @@
     box-shadow: 0 0 0 0;
     outline: none;
     color: var( --CorDaFonte);
-    height: 35px;
+    height: 40px;
     margin-left: -20%;
+    
 }
 
 .titulo-categoria{

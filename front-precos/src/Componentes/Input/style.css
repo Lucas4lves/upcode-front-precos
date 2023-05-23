@@ -1,6 +1,7 @@
   .caixa-maior{
     display: grid;
     padding-left: 33px;
+    
   }
     .titulo2{
         margin-left: 90px;
@@ -18,7 +19,7 @@
     .caixainput1{
         display: flex;
         flex-direction:column;
-        width: 14%;
+        width: 18%;
         margin-left: 90px;
         font-family: var(--FontePadaro);
         
@@ -27,7 +28,7 @@
     .caixainput2{
         display: flex;
         flex-direction:column;
-        width: 14%;
+        width: 18%;
         margin-left: 90px;
         font-family: var(--FontePadaro);
         
