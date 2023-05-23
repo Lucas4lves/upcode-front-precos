@@ -7,3 +7,8 @@
     border-radius: 10px;
     border: none;
 }
+
+.botao:hover{
+    background-color: #15a038;
+    transition: 0.4s;
+}
