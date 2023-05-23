@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FiSearch } from "react-icons/fi";
-import "../PesquisaBotao/style.css";
+import "../PesquisaInput/style.css";
 
 function SearchInput({ lojas, filtrar }) {
 

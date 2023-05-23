@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react";
 import Botao from "../Botao";
 import HederResumo from "../HederResumo/Categoriaheder";
-import SearchInput from "../PesquisaBotao";
+import SearchInput from "../PesquisaInput";
 import ProdutosSelecionados from "../ProdutosSelecionados";
 import Selecionados from "../LojasSelecionados";
 import SelectOptions from "../SelectOptions";
