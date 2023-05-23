@@ -1,9 +1,10 @@
 import { Table,Thead,Tbody,Tr,Th,Td,TableContainer} from '@chakra-ui/react'
-import "../Tabela/style.css"
+import "./style.css"
 
 
 
-export default function Tabela({coluna,loja, formulario, setForm}) {
+export default function Tabela({coluna,loja, formulario, setForm,lojasFiltradas}) {
+
 
   const excluirLoja = (e) => {
     setForm({...formulario, lojas: formulario.lojas.filter(loja => loja !== pegarLojaPorId(parseInt(e.target.parentNode.id)))})
@@ -11,7 +12,6 @@ export default function Tabela({coluna,loja, formulario, setForm}) {
 
   const pegarLojaPorId = (id) => {
     const lojaEncontrada = loja.filter(loja => loja.codigo == id)[0];
-
     return lojaEncontrada;
   }
 
@@ -43,7 +43,7 @@ export default function Tabela({coluna,loja, formulario, setForm}) {
       <div>
       <Tbody >
         <Tr>
-            {loja?.map((item,index) =>{
+            {lojasFiltradas?.map((item,index) =>{
               return(
                 <div id={item.codigo} className='caixa-loja' key={index}>
                   <Td className='texto-tabela' >{item.codigo}</Td>
@@ -53,7 +53,6 @@ export default function Tabela({coluna,loja, formulario, setForm}) {
                   </div>
                   <input className='box' type='checkbox' onClick={(e) => selecionarLoja(e)}/>
                 </div>
-                  
               )
             })}
         

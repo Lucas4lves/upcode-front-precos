@@ -2,9 +2,11 @@ import Acordeon from "./Componentes/Acordeon/inde";
 import Heder from "./Componentes/Heder";
 import Input from "./Componentes/Input";
 import { useState, useEffect } from "react";
+import lojasInicial from "../data/lojas.json";
 
 function App() {
   const [loja, setLojas] = useState([]);
+  const [lojasFiltradas, setLojasFiltradas] = useState(lojasInicial);
   const [produto, setProdutos] = useState([]);
   const [form, setForm] = useState({
     categoria: "Rx Marcas",
@@ -15,7 +17,13 @@ function App() {
     isFinished: false,
   });
 
-  const [lojasFiltradas, setLojasFiltradas] = useState(loja);
+  const filtrarLojas = (query) =>{
+    setLojasFiltradas(loja.filter(l => l.codigo.toString() === query));
+    if(query.length <= 0)
+    {
+      setLojasFiltradas(loja);
+    }
+  }
 
   const buscarProdutos = async () => {
     await fetch("../data/produto.json", {
@@ -37,7 +45,7 @@ function App() {
 
   useEffect(() => {
     buscarLojas();
-    buscarProdutos();
+    buscarProdutos()
   }, []);
 
   return (
@@ -49,8 +57,8 @@ function App() {
         produto={produto}
         formulario={form}
         setForm={setForm}
+        filtrar={filtrarLojas}
         lojasFiltradas={lojasFiltradas}
-        setLojasFiltradas={setLojasFiltradas}
       />
     </div>
   );

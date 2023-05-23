@@ -1,7 +1,7 @@
 import React from "react";
 import { ChakraProvider, Tbody, Box, Table, Tr, Td } from "@chakra-ui/react";
 import { AiOutlineClose } from "react-icons/ai";
-import "../Selecionados/style.css";
+import "../LojasSelecionados/style.css";
 
 const Selecionados = ({ formulario = {} }) => {
 

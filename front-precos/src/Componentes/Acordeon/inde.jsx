@@ -10,14 +10,14 @@ import Botao from "../Botao";
 import HederResumo from "../HederResumo/Categoriaheder";
 import SearchInput from "../PesquisaBotao";
 import ProdutosSelecionados from "../ProdutosSelecionados";
-import Selecionados from "../Selecionados";
+import Selecionados from "../LojasSelecionados";
 import SelectOptions from "../SelectOptions";
-import Tabela from "../Tabela";
+import Tabela from "../TabelaLojas";
 import TabelaProdutos from "../TabelaProdutos";
 
 import "./style.css";
 
-export default function Acordeon({ loja, produto, formulario, setForm, lojasFiltradas, setLojasFiltradas }) {
+export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
   return (
     <div className="caixa-maior1">
       <Accordion defaultIndex={[0]} allowMultiple>
@@ -32,15 +32,16 @@ export default function Acordeon({ loja, produto, formulario, setForm, lojasFilt
           </div>
           <AccordionPanel className="text" pb={4}>
             <div className="caixa-inpt">
-              <SearchInput lojas={loja} lojasFiltradas={lojasFiltradas} setLojasFiltradas={setLojasFiltradas}/>
+              <SearchInput lojas={loja} filtrar={filtrar}/>
             </div>
 
             <div className="selecao-lojas">
               <Tabela
                 coluna={["Codigo", "Loja", "UF"]}
-                loja={lojasFiltradas}
+                loja={loja}
                 formulario={formulario}
                 setForm={setForm}
+                lojasFiltradas={lojasFiltradas}
               />
               <div className="selecionados">
                 <Selecionados  formulario={formulario} lista={'lojas'} />
