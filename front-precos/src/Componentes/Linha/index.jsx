@@ -27,7 +27,7 @@ const Linha = ({ item, onSelect, index }) => {
           checked={check}
           className="box"
           type="checkbox"
-          onClick={(e) => onSelect(e)}
+          onChange={(e) => onSelect(e)}
         />
       </div>
     </>

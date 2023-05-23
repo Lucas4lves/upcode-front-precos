@@ -29,6 +29,13 @@ const AppProvider = ({ children }) => {
     }
   };
 
+  const filtrarProdutos = (query) => {
+    setProdutosFiltrados(produtosFiltrados.filter((p) => p.id.toString().includes(query)));
+    if (query.length <= 0) {
+      setProdutosFiltrados(produto);
+    }
+  };
+
   const filtrarProdutosPorCategoria = (categoria) => {
     setProdutosFiltrados(produto.filter(produto => produto.categoria.startsWith(categoria)));
     if(categoria.length <= 0){
@@ -82,11 +89,28 @@ const AppProvider = ({ children }) => {
     excluirLoja(e);
     return;
   };
-
   useEffect(() => {
     buscarLojas();
     buscarProdutos();
   }, []);
+
+  const excluirProduto = (e) => {
+    setForm({...form, produtos: form.produtos.filter(produto => produto !== pegarProdutoPorId(e.target.parentNode.id))})
+  }
+
+  const pegarProdutoPorId = (id) => {
+    return produto.filter((p) => p.id == id)[0];
+}
+  const selecionarProduto = (e) => {
+    if(e.target.checked){
+      setForm(
+        {...form, produtos: [...form.produtos, pegarProdutoPorId(e.target.parentNode.id)]}
+      )
+      return;
+    }
+    excluirProduto(e);
+    return;
+  }
 
   return (
     <AppContext.Provider
@@ -102,7 +126,9 @@ const AppProvider = ({ children }) => {
         pegarLojaPorId,
         excluirLoja,
         filtrarProdutosPorCategoria,
-        produtosFiltrados
+        produtosFiltrados,
+        filtrarProdutos,
+        selecionarProduto
       }}
     >
       {children}

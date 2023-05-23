@@ -14,10 +14,11 @@ import Selecionados from "../LojasSelecionados";
 import SelectOptions from "../SelectOptions";
 import Tabela from "../TabelaLojas";
 import TabelaProdutos from "../TabelaProdutos";
-
 import "./style.css";
+import { useGlobalContext } from "../../Contexts/Context";
 
 export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
+  const { produtosFiltrados, filtrarProdutos } = useGlobalContext();
   return (
     <div className="caixa-maior1">
       <Accordion defaultIndex={[0]} allowMultiple>
@@ -67,7 +68,7 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
             <div className="caixa-Selecao">
               <SelectOptions />
               <div className="inputPesquisa">
-              <SearchInput/>
+              <SearchInput lojas={produtosFiltrados} filtrar={filtrarProdutos}/>
               </div>
             </div>
 
