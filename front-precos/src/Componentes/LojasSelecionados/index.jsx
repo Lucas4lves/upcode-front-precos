@@ -20,12 +20,15 @@ const Selecionados = ({ formulario = {} }) => {
                     {lojas? lojas.map((loja) => {
                       return (
                         <>
-                          <Td className="descricao_selecionados">{loja.codigo}</Td>
+                        <div className="teste">
+                        <Td className="descricao_selecionados">{loja.codigo}</Td>
                           <Td className="descricao_selecionados">{loja.nomeFilial}</Td>
                           <Td className="descricao_selecionados">{loja.uf}</Td>
                           <button type="button" className="delete_button">
                             <AiOutlineClose />
                           </button>
+                        </div>
+                      
                         </>
                       );
                     }): null}

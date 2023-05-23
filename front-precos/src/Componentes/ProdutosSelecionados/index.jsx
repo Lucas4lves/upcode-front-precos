@@ -11,7 +11,7 @@ const ProdutosSelecionados = ({formulario = {} }) => {
    
      <div className="main">
       <ChakraProvider>
-        <div className="container_selecionados">
+        <div className="container_selecionados2">
           <div>
             <h1 className="title_selecionados">Selecionados</h1>
             <Box>
@@ -21,12 +21,15 @@ const ProdutosSelecionados = ({formulario = {} }) => {
                     {produtos? produtos.map((produto) => {
                       return (
                         <>
-                          <Td className="descricao_selecionados">{produto.id}</Td>
+                        <div className='teste2'>
+                        <Td className="descricao_selecionados">{produto.id}</Td>
                           <Td className="descricao_selecionados">{produto.nome}</Td>
                           <Td className="descricao_selecionados">{}</Td>
                           <button type="button" className="delete_button">
                             <AiOutlineClose />
                           </button>
+                        </div>
+                      
                         </>
                       );
                     }): null}

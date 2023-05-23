@@ -5,16 +5,18 @@
 
   }
 
-  .container_selecionados{
+  .container_selecionados2{
     border: none;
     border-radius: 10px;
     background: #f0ebeb;
-    padding: 5rem;
     box-shadow: 1px 2px 9px #6e6b6b;
     margin: 15px;
     margin-left: 115px;
     width: 80%;
-    
+    max-height: 469px;
+    min-height: 469px;
+    overflow-y: auto;
+    min-width: 469px;
     
   }
 
@@ -29,7 +31,7 @@
 
 .descricao_selecionados{
   font-size: 16px;
-
+ margin: 5px;
 }
 
 .delete_button{
@@ -37,11 +39,15 @@
     font-size: 18px;
     padding-top: 1.2rem;
     display: grid;
-    padding-left: 2rem;
+    padding-right: 10px;
     
 }
 
 .delete_button:hover{
   color: rgb(240, 0, 0);
   transition: 2ms;
+}
+.teste2{
+  display: flex;
+  justify-content: space-between;
 }
