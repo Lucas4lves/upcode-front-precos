@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import lojasInicial from "../../data/lojas.json";
+import produtosInicial from "../../data/produto.json";
 import { useState, useEffect, useContext } from "react";
 export const AppContext = createContext();
 
@@ -11,6 +12,7 @@ const AppProvider = ({ children }) => {
   const [loja, setLojas] = useState([]);
   const [lojasFiltradas, setLojasFiltradas] = useState(lojasInicial);
   const [produto, setProdutos] = useState([]);
+  const [produtosFiltrados, setProdutosFiltrados] = useState(produtosInicial);
   const [form, setForm] = useState({
     categoria: "Rx Marcas",
     startDate: "",
@@ -26,6 +28,13 @@ const AppProvider = ({ children }) => {
       setLojasFiltradas(loja);
     }
   };
+
+  const filtrarProdutosPorCategoria = (categoria) => {
+    setProdutosFiltrados(produto.filter(produto => produto.categoria.startsWith(categoria)));
+    if(categoria.length <= 0){
+      setProdutosFiltrados(produtosFiltrados);
+    }
+  }
 
   const buscarProdutos = async () => {
     await fetch("../data/produto.json", {
@@ -91,7 +100,9 @@ const AppProvider = ({ children }) => {
         setForm,
         selecionarLoja,
         pegarLojaPorId,
-        excluirLoja
+        excluirLoja,
+        filtrarProdutosPorCategoria,
+        produtosFiltrados
       }}
     >
       {children}

@@ -12,7 +12,6 @@ const Linha = ({ item, onSelect, index }) => {
       setCheck(true);
       return;
     }
-
     setCheck(false);
   });
 

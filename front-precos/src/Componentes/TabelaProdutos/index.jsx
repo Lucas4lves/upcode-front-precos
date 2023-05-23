@@ -1,9 +1,10 @@
 import { Table,Thead,Tbody,Tr,Th,Td,TableContainer} from '@chakra-ui/react'
 import "../TabelaProdutos/style.css"
-
-
+import { useGlobalContext } from "../../Contexts/Context";
 
 export default function TabelaProdutos({coluna,produto, formulario, setForm}) {
+
+  const { produtosFiltrados } = useGlobalContext();
 
 const excluirProduto = (e) => {
   setForm({...formulario, produtos: formulario.produtos.filter(produto => produto !== pegarProdutoPorId(e.target.parentNode.id))})
@@ -39,7 +40,7 @@ const pegarProdutoPorId = (id) => {
    
     <Tbody>
       <Tr>
-        {produto?.map((item,index) => {
+        {produtosFiltrados?.map((item,index) => {
             return(
                 <div className='caixa-produtos' key={index} >
                     <Td className='texto-tabela'>{item.id}</Td>
