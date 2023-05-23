@@ -45,14 +45,58 @@ const AppProvider = ({ children }) => {
       .catch((err) => console.log(err));
   }
 
+  const excluirLoja = (e) => {
+    setForm({
+      ...form,
+      lojas: form.lojas.filter(
+        (loja) => loja !== pegarLojaPorId(parseInt(e.target.parentNode.id))
+      ),
+    });
+  };
+
+  const pegarLojaPorId = (id) => {
+    const lojaEncontrada = loja.filter((loja) => loja.codigo == id)[0];
+    return lojaEncontrada;
+  };
+
+  const selecionarLoja = (e) => {
+    if (e.target.checked) {
+      setForm({
+        ...form,
+        lojas: [
+          ...form.lojas,
+          pegarLojaPorId(parseInt(e.target.parentNode.id)),
+        ],
+      });
+      return;
+    }
+    excluirLoja(e);
+    return;
+  };
+
   useEffect(() => {
     buscarLojas();
     buscarProdutos();
   }, []);
 
-  return <AppContext.Provider value={{
-    loja, lojasFiltradas, filtrarLojas, produto, setProdutos, form, setForm
-  }}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider
+      value={{
+        loja,
+        lojasFiltradas,
+        filtrarLojas,
+        produto,
+        setProdutos,
+        form,
+        setForm,
+        selecionarLoja,
+        pegarLojaPorId,
+        excluirLoja
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
 };
 
 export { AppProvider as default };
