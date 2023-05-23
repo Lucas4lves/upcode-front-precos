@@ -33,6 +33,7 @@
     font-size: 16px;
     font-weight: 400;
 }
+
 .caixa-resumo{
     width: 50%;
     margin-top: 15px;
@@ -40,10 +41,17 @@
 .caixa-Selecao{
     display: flex;
     gap: 15px;
+    width: 100%;
     
 }
+
+.inputPesquisa{
+    width: 200%;
+}
+
+
 .caixa-inpt{
-    margin-left: 23%;
+    margin-left: 20%;
     width: 100%;
 }
 .selecao-lojas{

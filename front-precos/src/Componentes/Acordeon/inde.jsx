@@ -66,7 +66,9 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
           <AccordionPanel className="text" pb={4}>
             <div className="caixa-Selecao">
               <SelectOptions />
-              {/* <SearchInput /> */}
+              <div className="inputPesquisa">
+              <SearchInput/>
+              </div>
             </div>
 
             <div className="seleciona-produtos">
