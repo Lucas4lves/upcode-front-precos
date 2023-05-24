@@ -14,9 +14,9 @@ import Selecionados from "../LojasSelecionados";
 import SelectOptions from "../SelectOptions";
 import Tabela from "../TabelaLojas";
 import TabelaProdutos from "../TabelaProdutos";
+import Modal from "../Modal";
 import "./style.css";
 import { useGlobalContext } from "../../Contexts/Context";
-import Modal from "../Modal";
 
 export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
   const { produtosFiltrados, filtrarProdutos } = useGlobalContext();
@@ -46,7 +46,7 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
                 lojasFiltradas={lojasFiltradas}
               />
               <div className="selecionados">
-                <Selecionados  formulario={formulario} lista={'lojas'} />
+                <Selecionados tipo={'lojas'} />
               </div>
             </div>
           
@@ -81,7 +81,7 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
                 produto={produto}
               />
               <div className="selecionados">
-               <ProdutosSelecionados  formulario={formulario} lista={'produtos'} />
+               <Selecionados tipo={'produtos'} />
               </div>
             </div>
             <div className="caixa-batao">
@@ -100,19 +100,20 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
             </AccordionButton>
           </div>
           <AccordionPanel className="text" pb={4}>
-            <HederResumo/>
+            <HederResumo />
             <div className="selecionados-resumo">
               <Tabela
+                resumo={true}
                 className="caixa-resumo"
                 coluna={["Codigo", "Loja", "UF"]}
                 produto={produto}
               />
               <div className="select">
-                <Selecionados />
+                <Selecionados tipo={"produtos"} />
               </div>
             </div>
             <div className="caixa-batao">
-             <Modal/>
+              <Modal />
             </div>
           </AccordionPanel>
         </AccordionItem>

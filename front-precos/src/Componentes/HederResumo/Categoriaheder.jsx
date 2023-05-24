@@ -27,7 +27,7 @@ const HederResumo = () => {
     <>
     <div className='categoria'>
       <h2>Categoria</h2><br></br>
-      <h2>{formatarData(startDate)} até {formatarData(endDate)}</h2>
+      <h2>{startDate? formatarData(startDate): null} até {endDate? formatarData(endDate) : null}</h2>
     </div>  
   
     <div className='lojas'>
