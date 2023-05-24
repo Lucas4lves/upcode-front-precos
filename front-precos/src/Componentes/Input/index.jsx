@@ -1,4 +1,3 @@
-
 import "../Input/style.css"
 
 const Input = ({formulario, setForm}) => {

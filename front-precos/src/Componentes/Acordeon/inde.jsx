@@ -19,6 +19,28 @@ import "./style.css";
 import { useGlobalContext } from "../../Contexts/Context";
 
 export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
+  
+  const validarForm = (form) => {
+    const values = Object.values(form);
+    for(let value of values){
+      if(value === "")
+      {
+        return false;
+      }
+    } 
+    return true;
+  }
+  
+  const enviarPesquisa = (url, payload) =>{
+    const formValido = validarForm(payload);
+    if(formValido)
+    {
+      return alert("Form válido!")
+    }
+
+    return alert("Form inválido!");
+  }
+
   const { produtosFiltrados, filtrarProdutos } = useGlobalContext();
   return (
     <div className="caixa-maior1">
@@ -113,7 +135,9 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
               </div>
             </div>
             <div className="caixa-batao">
-              <Modal />
+              <button className="button" onClick={()=>{
+               enviarPesquisa("teste",formulario);
+              }}>Enviar </button>
             </div>
           </AccordionPanel>
         </AccordionItem>

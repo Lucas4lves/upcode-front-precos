@@ -1,7 +1,8 @@
-const PainelResumo = () => {
+const PainelResumo = (props) => {
     return (
         <>
             <div>
+                
                 
             </div>
         </>
