@@ -18,39 +18,64 @@ import Modal from "../Modal";
 import "./style.css";
 import { useGlobalContext } from "../../Contexts/Context";
 
-export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltradas}) {
-  
+export default function Acordeon({
+  loja,
+  produto,
+  filtrar,
+  lojasFiltradas,
+  formulario
+}) {
   let fieldSlugs = {
-    startDate: "data Inicial",
-    endDate: "data de Término",
+    startDate: "data inicial",
+    endDate: "data de término",
     lojas: "lojas",
-    produtos: "produtos"
+    produtos: "produtos",
+  };
+
+  const fetchProDb = (metodo, url, payload = "") => {
+    if(metodo != "GET")
+    {
+      fetch(url, {
+        method: metodo,
+        headers: {"Content-type" : "application/json"},
+        body: JSON.stringify(payload)
+      }).then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err))
+    }
   }
 
   const validarForm = (form) => {
-
-    for(let key in form){
-      if(form[key] === "" || form[key].length <= 0)
-      {
-        return {isValid: false, msg: `O campo de ${fieldSlugs[key]} está em branco ou inválido`};
+    for (let key in form) {
+      if (form[key] === "" || form[key].length <= 0) {
+        return {
+          isValid: false,
+          msg: `O campo de ${fieldSlugs[key]} está em branco ou inválido`,
+        };
       }
-    } 
-    return {isValid : true, msg: "Formulário Válido!"};
-  }
-  
-  const enviarPesquisa = (url, payload) =>{
+    }
+    return { isValid: true, msg: "Formulário Válido!" };
+  };
+
+  const enviarPesquisa = (url, payload) => {
     const formulario = validarForm(payload);
-    if(formulario.isValid)
-    {
+    // console.log(payload);
+    // let {startDate, endDate} = payload;
+
+    // let dataInicial = new Date(startDate).toISOString();
+    // let dataFinal = new Date(endDate).toISOString();
+
+    if (formulario.isValid) {
+      fetchProDb("POST", url, {...payload, lojas: [1, 8]});
       limparForm();
-      return alert("Form válido!")
+      return alert("Form válido!");
     }
 
-    return alert(formulario.msg); 
-  }
+    return alert(formulario.msg);
+  };
 
-  const { produtosFiltrados, filtrarProdutos, setForm } = useGlobalContext();
-  const limparForm = () =>{
+  const { produtosFiltrados, filtrarProdutos, form, setForm, api } = useGlobalContext();
+  const limparForm = () => {
     setForm({
       categoria: "Rx Marcas",
       startDate: "",
@@ -58,8 +83,8 @@ export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltr
       lojas: [],
       produtos: [],
       isFinished: false,
-    })
-  }
+    });
+  };
   return (
     <div className="caixa-maior1">
       <Accordion defaultIndex={[0]} allowMultiple>
@@ -74,22 +99,21 @@ export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltr
           </div>
           <AccordionPanel className="text" pb={4}>
             <div className="caixa-inpt">
-              <SearchInput lojas={loja} filtrar={filtrar}/>
+              <SearchInput lojas={loja} filtrar={filtrar} />
             </div>
 
             <div className="selecao-lojas">
               <Tabela
                 coluna={["Codigo", "Loja", "UF"]}
                 loja={loja}
-                formulario={formulario}
                 setForm={setForm}
                 lojasFiltradas={lojasFiltradas}
               />
               <div className="selecionados">
-                <Selecionados tipo={'lojas'} />
+                <Selecionados tipo={"lojas"} />
               </div>
             </div>
-          
+
             <div className="caixa-batao">
               <Botao text="Prosseguir" />
             </div>
@@ -109,7 +133,10 @@ export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltr
             <div className="caixa-Selecao">
               <SelectOptions />
               <div className="inputPesquisa">
-              <SearchInput lojas={produtosFiltrados} filtrar={filtrarProdutos}/>
+                <SearchInput
+                  lojas={produtosFiltrados}
+                  filtrar={filtrarProdutos}
+                />
               </div>
             </div>
 
@@ -121,7 +148,7 @@ export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltr
                 produto={produto}
               />
               <div className="selecionados">
-               <Selecionados tipo={'produtos'} />
+                <Selecionados tipo={"produtos"} />
               </div>
             </div>
             <div className="caixa-batao">
@@ -153,9 +180,15 @@ export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltr
               </div>
             </div>
             <div className="caixa-batao">
-              <button className="button" onClick={()=>{
-               enviarPesquisa("teste",formulario);
-              }}>Enviar </button>
+              <button
+                className="button"
+                onClick={() => {
+                  enviarPesquisa(`${api.baseUrl}/criar`, form);
+
+                }}
+              >
+                Enviar{" "}
+              </button>
             </div>
           </AccordionPanel>
         </AccordionItem>

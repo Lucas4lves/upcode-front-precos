@@ -2,6 +2,8 @@ import { createContext } from "react";
 import lojasInicial from "../../data/lojas.json";
 import produtosInicial from "../../data/produto.json";
 import { useState, useEffect, useContext } from "react";
+import api from "../../api.json";
+
 export const AppContext = createContext();
 
 export const useGlobalContext = () => {
@@ -128,7 +130,8 @@ const AppProvider = ({ children }) => {
         filtrarProdutosPorCategoria,
         produtosFiltrados,
         filtrarProdutos,
-        selecionarProduto
+        selecionarProduto,
+        api
       }}
     >
       {children}
