@@ -9,6 +9,7 @@ const Input = ({formulario, setForm}) => {
           <div className='caixainput1'>
               <p className='inicio'>Inicio</p>
               <input className='typeinput' type="date"
+
               value={formulario.startDate}
               onChange={(e) => setForm({...formulario, startDate: e.target.value})}
               />
