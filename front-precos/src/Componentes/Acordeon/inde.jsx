@@ -18,11 +18,11 @@ import Modal from "../Modal";
 import "./style.css";
 import { useGlobalContext } from "../../Contexts/Context";
 
-export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
+export default function Acordeon({ loja, produto, formulario, filtrar,lojasFiltradas}) {
   
   let fieldSlugs = {
-    startDate: "Data Inicial",
-    endDate: "Data de Término",
+    startDate: "data Inicial",
+    endDate: "data de Término",
     lojas: "lojas",
     produtos: "produtos"
   }
@@ -42,13 +42,24 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
     const formulario = validarForm(payload);
     if(formulario.isValid)
     {
+      limparForm();
       return alert("Form válido!")
     }
 
     return alert(formulario.msg); 
   }
 
-  const { produtosFiltrados, filtrarProdutos } = useGlobalContext();
+  const { produtosFiltrados, filtrarProdutos, setForm } = useGlobalContext();
+  const limparForm = () =>{
+    setForm({
+      categoria: "Rx Marcas",
+      startDate: "",
+      endDate: "",
+      lojas: [],
+      produtos: [],
+      isFinished: false,
+    })
+  }
   return (
     <div className="caixa-maior1">
       <Accordion defaultIndex={[0]} allowMultiple>
