@@ -20,25 +20,32 @@ import { useGlobalContext } from "../../Contexts/Context";
 
 export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
   
+  let fieldSlugs = {
+    startDate: "Data Inicial",
+    endDate: "Data de Término",
+    lojas: "lojas",
+    produtos: "produtos"
+  }
+
   const validarForm = (form) => {
-    const values = Object.values(form);
-    for(let value of values){
-      if(value === "")
+
+    for(let key in form){
+      if(form[key] === "" || form[key].length <= 0)
       {
-        return false;
+        return {isValid: false, msg: `O campo de ${fieldSlugs[key]} está em branco ou inválido`};
       }
     } 
-    return true;
+    return {isValid : true, msg: "Formulário Válido!"};
   }
   
   const enviarPesquisa = (url, payload) =>{
-    const formValido = validarForm(payload);
-    if(formValido)
+    const formulario = validarForm(payload);
+    if(formulario.isValid)
     {
       return alert("Form válido!")
     }
 
-    return alert("Form inválido!");
+    return alert(formulario.msg); 
   }
 
   const { produtosFiltrados, filtrarProdutos } = useGlobalContext();
