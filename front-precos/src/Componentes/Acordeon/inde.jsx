@@ -16,6 +16,7 @@ import Tabela from "../TabelaLojas";
 import TabelaProdutos from "../TabelaProdutos";
 import "./style.css";
 import { useGlobalContext } from "../../Contexts/Context";
+import Modal from "../Modal";
 
 export default function Acordeon({ loja, produto, formulario, setForm, filtrar,lojasFiltradas}) {
   const { produtosFiltrados, filtrarProdutos } = useGlobalContext();
@@ -111,7 +112,7 @@ export default function Acordeon({ loja, produto, formulario, setForm, filtrar,l
               </div>
             </div>
             <div className="caixa-batao">
-              <Botao text="Enviar" />
+             <Modal/>
             </div>
           </AccordionPanel>
         </AccordionItem>
