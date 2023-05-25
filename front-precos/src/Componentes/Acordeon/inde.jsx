@@ -87,7 +87,7 @@ export default function Acordeon({
   };
   return (
     <div className="caixa-maior1">
-      <Accordion className="acord" defaultIndex={[0]} allowMultiple>
+      <Accordion className="acord" defaultIndex={[0]}>
         <AccordionItem>
           <div className="acordion1">
             <AccordionButton className="button">
