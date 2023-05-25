@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "../Input/style.css";
 
 const Input = ({ formulario, setForm }) => {

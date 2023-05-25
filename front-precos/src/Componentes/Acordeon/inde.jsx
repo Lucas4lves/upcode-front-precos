@@ -25,6 +25,9 @@ export default function Acordeon({
   lojasFiltradas,
   formulario
 }) {
+
+  const { produtosFiltrados, filtrarProdutos, form, setForm, api } = useGlobalContext();
+
   let fieldSlugs = {
     startDate: "data inicial",
     endDate: "data de término",
@@ -38,7 +41,14 @@ export default function Acordeon({
       fetch(url, {
         method: metodo,
         headers: {"Content-type" : "application/json"},
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          categoria: "RX/Genérico",
+          startDate: payload.startDate,
+          endDate: payload.endDate,
+          lojas: payload.lojas,
+          produtos: payload.produtos,
+          isFinished: false
+        })
       }).then(res => res.json())
       .then(data => console.log(data))
       .catch(err => console.log(err))
@@ -59,14 +69,11 @@ export default function Acordeon({
 
   const enviarPesquisa = (url, payload) => {
     const formulario = validarForm(payload);
-    // console.log(payload);
-    // let {startDate, endDate} = payload;
-
-    // let dataInicial = new Date(startDate).toISOString();
-    // let dataFinal = new Date(endDate).toISOString();
+    let lojas = payload.lojas;
+    let ids = lojas.map(loja => loja.codigo);
 
     if (formulario.isValid) {
-      fetchProDb("POST", url, {...payload, lojas: [1, 8]});
+      fetchProDb("POST", url, {...payload, lojas: ids});
       limparForm();
       return alert("Form válido!");
     }
@@ -74,7 +81,7 @@ export default function Acordeon({
     return alert(formulario.msg);
   };
 
-  const { produtosFiltrados, filtrarProdutos, form, setForm, api } = useGlobalContext();
+
   const limparForm = () => {
     setForm({
       categoria: "Rx Marcas",
