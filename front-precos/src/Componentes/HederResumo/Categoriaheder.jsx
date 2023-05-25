@@ -20,6 +20,8 @@ const HederResumo = () => {
      const temp = new Date(data).toLocaleDateString();
      let [dia, mes, ano] = temp.split("/");
 
+    dia = Number(dia) + 1;
+
      return `${dia}/${mes}/${ano}`;
   }
 

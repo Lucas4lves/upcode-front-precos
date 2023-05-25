@@ -37,6 +37,7 @@ const Input = ({ formulario, setForm }) => {
           <input
             className="typeinput"
             type="date"
+            min={pegarDataMinima()}
             value={formulario.endDate.substring(0,10)}
             onChange={(e) =>
               setForm({
