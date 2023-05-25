@@ -6,17 +6,19 @@
     margin-top: 10px;
     max-height: 469px;
     min-height: 469px;
+    
 }
 
 
 .tabela-maior-loja{
-    width: 98%;
+    width: 95%;
     display: flex;
     justify-content: space-between;
     overflow-y: auto;
     max-height: 469px;
     margin-top: 5px;
     margin-left: 10px;
+    
     
 }
 .titulo-tabela{

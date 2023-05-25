@@ -1,19 +1,30 @@
 
 .caixa-maior1{
-    padding-top: 30px;
-    padding-left: 33px;
+    padding-top: 33px;
+    /* padding-left: 33px; */
     display: grid;
+    place-items: center;
     
+
+}
+.acord{
+    width: 81.25rem;
+    /* display: flex;
+    justify-content: center;
+    flex-direction: column; */
 
 }
 
 .acordion1{
-    width: 80%;
+    width: 1050px;
     margin-left: 80px;
     margin-top: 15px;
     border: none;
     border-radius: 10px;
     color: #fff; 
+    display: flex;
+    align-items: center;
+
   
 }
 
@@ -31,6 +42,8 @@
     border-radius: 10px;
     color: #fff; 
     font-weight: 400;
+    
+    
 }
 
 
@@ -58,12 +71,12 @@
 
 .inputPesquisa{
     width: 100%;
-    margin-left: 69px;
+    margin-left: 9px;
 }
 
 
 .caixa-inpt{
-    margin-left: 23%;
+    margin-left: 20%;
     width: 100%;
 }
 .selecao-lojas{
@@ -72,6 +85,7 @@
 }
 .seleciona-produtos{
     display: flex;
+    font-size: 15px;
     
 }
 .selecionados-resumo{

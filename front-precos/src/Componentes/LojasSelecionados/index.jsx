@@ -27,9 +27,9 @@ const Selecionados = ({ tipo }) => {
                         <Td className="descricao_selecionados">{loja.codigo}</Td>
                           <Td className="descricao_selecionados">{loja.nomeFilial}</Td>
                           <Td className="descricao_selecionados">{loja.uf}</Td>
-                          {/* <button type="button" className="delete_button">
+                          <button type="button" className="delete_button">
                             <AiOutlineClose />
-                          </button> */}
+                          </button>
                         </div>
                       
                         </>
@@ -63,9 +63,9 @@ const Selecionados = ({ tipo }) => {
                       <Td className="descricao_selecionados">{produto.id}</Td>
                         <Td className="descricao_selecionados">{produto.nome}</Td>
                         <Td className="descricao_selecionados">{}</Td>
-                        {/* <button type="button" className="delete_button">
+                        <button type="button" className="delete_button">
                           <AiOutlineClose />
-                        </button> */}
+                        </button>
                       </div>
                       </>
                     );

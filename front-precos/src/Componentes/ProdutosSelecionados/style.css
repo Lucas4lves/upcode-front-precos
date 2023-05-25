@@ -2,7 +2,7 @@
 .main{
   width: 100%;
   gap: 7.8rem;
-  
+ 
 }
 
 .container_selecionados2{
@@ -51,4 +51,5 @@ transition: 2ms;
 .teste2{
 display: flex;
 justify-content: space-between;
+
 }
