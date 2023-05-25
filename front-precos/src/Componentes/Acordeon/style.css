@@ -32,7 +32,7 @@
     width: 80%;
     margin-left: 80px;
     font-family: var(--FontePadaro);
-    
+    background-color: #F5F5F5;
 }
 
 .button{
@@ -81,6 +81,8 @@
 }
 .selecao-lojas{
     display: flex;
+    justify-content: space-around;
+    width: 100%;
 
 }
 .seleciona-produtos{
