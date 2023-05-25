@@ -181,7 +181,7 @@ export default function Acordeon({
             </div>
             <div className="caixa-batao">
               <button
-                className="button"
+                className="botaoModal"
                 onClick={() => {
                   enviarPesquisa(`${api.baseUrl}/criar`, form);
 
