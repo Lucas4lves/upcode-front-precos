@@ -18,11 +18,16 @@ const HederResumo = () => {
 
   const formatarData = (data) =>{
      const temp = new Date(data).toLocaleDateString();
+     console.log(temp);
      let [dia, mes, ano] = temp.split("/");
-
-    dia = Number(dia) + 1;
-
-     return `${dia}/${mes}/${ano}`;
+     if(Number(dia) < 31)
+     {
+      dia = Number(dia) + 1;
+     } else{
+      dia = 1; 
+      mes = Number(mes) + 1;
+     }
+     return `${dia.length < 2? "0" + dia: dia}/${pad(mes)}/${ano}`;
   }
 
   return (

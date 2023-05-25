@@ -1,9 +1,9 @@
+import { useState } from "react";
 import "../Input/style.css";
 
 const Input = ({ formulario, setForm }) => {
-
-  const pegarDataMinima = () => {
-    let temp = new Date()
+  const pegarDataMinima = (date ="") => {
+    let temp = new Date(date)
                    .toLocaleString()
                    .substring(0, 10)
                    .split("/");
@@ -11,6 +11,17 @@ const Input = ({ formulario, setForm }) => {
     let [dia, mes, ano] = temp;
     return `${ano}-${mes}-${dia}`;
   };
+
+  const adicionarUmDia = (datetime) => {
+    let [ano, mes, dia] = datetime.split("-");
+
+    dia = Number(dia) + 1;
+
+    return `${ano}-${mes}-${dia}`;  
+  }
+
+  const [minDate, setMinDate] = useState(pegarDataMinima());
+
 
   return (
     <div className="caixa-maior">
@@ -21,13 +32,14 @@ const Input = ({ formulario, setForm }) => {
           <input
             className="typeinput"
             type="date"
-            min={pegarDataMinima()}
             value={formulario.startDate.substring(0,10)}
             onChange={(e) => {
               setForm({
                 ...formulario,
                 startDate: new Date(e.target.value).toISOString(),
+                endDate: ""
               });
+              setMinDate(e.target.value)
             }}
           />
         </div>
@@ -36,7 +48,7 @@ const Input = ({ formulario, setForm }) => {
           <input
             className="typeinput"
             type="date"
-            min={pegarDataMinima()}
+            min={adicionarUmDia(minDate)}
             value={formulario.endDate.substring(0,10)}
             onChange={(e) =>
               setForm({

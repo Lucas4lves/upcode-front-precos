@@ -5,6 +5,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   Box,
+  useAccordionContext,
 } from "@chakra-ui/react";
 import Botao from "../Botao";
 import HederResumo from "../HederResumo/Categoriaheder";
@@ -18,16 +19,15 @@ import Modal from "../Modal";
 import "./style.css";
 import { useGlobalContext } from "../../Contexts/Context";
 
-export default function Acordeon({
-  loja,
-  produto,
-  filtrar,
-  lojasFiltradas,
-  formulario
-}) {
-
-  const { produtosFiltrados, filtrarProdutos, form, setForm, api } = useGlobalContext();
-
+export default function Acordeon({ loja, produto, filtrar, formulario }) {
+  const {
+    lojasFiltradas,
+    produtosFiltrados,
+    filtrarProdutos,
+    form,
+    setForm,
+    api,
+  } = useGlobalContext();
   let fieldSlugs = {
     startDate: "data inicial",
     endDate: "data de término",
@@ -36,24 +36,24 @@ export default function Acordeon({
   };
 
   const fetchProDb = (metodo, url, payload = "") => {
-    if(metodo != "GET")
-    {
+    if (metodo != "GET") {
       fetch(url, {
         method: metodo,
-        headers: {"Content-type" : "application/json"},
+        headers: { "Content-type": "application/json" },
         body: JSON.stringify({
           categoria: "RX/Genérico",
           startDate: payload.startDate,
           endDate: payload.endDate,
           lojas: payload.lojas,
           produtos: payload.produtos,
-          isFinished: false
-        })
-      }).then(res => res.json())
-      .then(data => console.log(data))
-      .catch(err => console.log(err))
+          isFinished: false,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+        .catch((err) => console.log(err));
     }
-  }
+  };
 
   const validarForm = (form) => {
     for (let key in form) {
@@ -70,17 +70,16 @@ export default function Acordeon({
   const enviarPesquisa = (url, payload) => {
     const formulario = validarForm(payload);
     let lojas = payload.lojas;
-    let ids = lojas.map(loja => loja.codigo);
+    let ids = lojas.map((loja) => loja.codigo);
 
     if (formulario.isValid) {
-      fetchProDb("POST", url, {...payload, lojas: ids});
+      fetchProDb("POST", url, { ...payload, lojas: ids });
       limparForm();
       return alert("Form válido!");
     }
 
     return alert(formulario.msg);
   };
-
 
   const limparForm = () => {
     setForm({
@@ -92,6 +91,7 @@ export default function Acordeon({
       isFinished: false,
     });
   };
+
   return (
     <div className="caixa-maior1">
       <Accordion className="acord" defaultIndex={[0]}>
@@ -150,7 +150,7 @@ export default function Acordeon({
             <div className="seleciona-produtos">
               <TabelaProdutos
                 coluna={["Codigo", "Descrição"]}
-                formulario={formulario}
+                formulario={form}
                 setForm={setForm}
                 produto={produto}
               />
@@ -191,7 +191,6 @@ export default function Acordeon({
                 className="botaoModal"
                 onClick={() => {
                   enviarPesquisa(`${api.baseUrl}/criar`, form);
-
                 }}
               >
                 Enviar{" "}
