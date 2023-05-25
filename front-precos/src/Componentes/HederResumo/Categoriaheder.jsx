@@ -18,9 +18,9 @@ const HederResumo = () => {
 
   const formatarData = (data) =>{
      const temp = new Date(data).toLocaleDateString();
-     let [mes, dia, ano] = temp.split("/");
+     let [dia, mes, ano] = temp.split("/");
 
-     return `${pad(dia)}/${pad(mes)}/${ano}`;
+     return `${dia}/${mes}/${ano}`;
   }
 
   return (

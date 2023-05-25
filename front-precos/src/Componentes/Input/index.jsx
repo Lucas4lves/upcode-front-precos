@@ -2,21 +2,16 @@ import { useEffect } from "react";
 import "../Input/style.css";
 
 const Input = ({ formulario, setForm }) => {
-  
+
   const pegarDataMinima = () => {
     let temp = new Date()
                    .toLocaleString()
                    .substring(0, 10)
                    .split("/");
 
-    let [mes, dia, ano] = temp;
-
-    return `${ano.substring(0,4)}-${mes < 10 ? "0" + mes : mes}-${dia < 10 ? "0" + dia : dia}`;
+    let [dia, mes, ano] = temp;
+    return `${ano}-${mes}-${dia}`;
   };
-
-  // useEffect(() =>{
-  //   pegarDataMinima();
-  // }, [])
 
   return (
     <div className="caixa-maior">
@@ -26,8 +21,8 @@ const Input = ({ formulario, setForm }) => {
           <p className="inicio">Inicio</p>
           <input
             className="typeinput"
-            min={pegarDataMinima()}
             type="date"
+            min={pegarDataMinima()}
             value={formulario.startDate.substring(0,10)}
             onChange={(e) => {
               setForm({
@@ -42,7 +37,6 @@ const Input = ({ formulario, setForm }) => {
           <input
             className="typeinput"
             type="date"
-            min={pegarDataMinima()}
             value={formulario.endDate.substring(0,10)}
             onChange={(e) =>
               setForm({
@@ -58,6 +52,3 @@ const Input = ({ formulario, setForm }) => {
 };
 
 export default Input;
-
-// startDate: "",
-// endDate: "",
