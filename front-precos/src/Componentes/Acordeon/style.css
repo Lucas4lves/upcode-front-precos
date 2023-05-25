@@ -1,8 +1,10 @@
+
 .caixa-maior1{
     padding-top: 30px;
-    display: grid;
     padding-left: 33px;
+    display: grid;
     
+
 }
 
 .acordion1{
@@ -12,13 +14,14 @@
     border: none;
     border-radius: 10px;
     color: #fff; 
-    
+  
 }
 
 .text{
     width: 80%;
     margin-left: 80px;
     font-family: var(--FontePadaro);
+    
 }
 
 .button{
@@ -44,22 +47,28 @@
 }
 .caixa-Selecao{
     display: flex;
-    gap: 15px;
-    width: 100%;
+    justify-content: flex-start;
+  
+    
+}
+.caixa-select{
+    display: flex;
     
 }
 
 .inputPesquisa{
-    width: 200%;
+    width: 100%;
+    margin-left: 69px;
 }
 
 
 .caixa-inpt{
-    margin-left: 20%;
+    margin-left: 23%;
     width: 100%;
 }
 .selecao-lojas{
     display: flex;
+
 }
 .seleciona-produtos{
     display: flex;
@@ -67,18 +76,19 @@
 }
 .selecionados-resumo{
     display: flex;
+    width: 100%;
+   
+    
 }
 .caixa-resumo{
   margin-top: 15px;
   margin-left: 115px;
 }
-.select{
-    width: 60%;
-    margin-left: 50px;
-}
+
 .caixa-batao{
     display: flex;
     justify-content: flex-end;
-    margin-right: 10px;
+    margin-right: 2px;
     padding-top: 0.8rem;
 }
+
